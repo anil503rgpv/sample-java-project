@@ -58,15 +58,58 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.2.4</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+					<prefix>git</prefix>
+					<verbose>false</verbose>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+					<format>json</format>
+					<gitDescribe>
+						<skip>false</skip>
+						<always>false</always>
+						<dirty>-dirty</dirty>
+					</gitDescribe>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<name>a0dyzxywuaamw-artifactory-primary-0-snapshots</name>
+<!--			<name>a0dyzxywuaamw-artifactory-primary-0-snapshots</name>-->
 			<url>https://jfrogsever11082023.jfrog.io/artifactory/sandhya-libs-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>sandhya-libs-release</name>
+			<url>https://jfrogsever11082023.jfrog.io/artifactory/sandhya-libs-release</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>sandhya-libs-snapshot</name>
+			<url>https://jfrogsever11082023.jfrog.io/artifactory/sandhya-libs-snapshot</url>
+		</repository>
+	</repositories>
 
 </project>
