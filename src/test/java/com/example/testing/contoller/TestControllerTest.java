@@ -25,6 +25,6 @@ class TestControllerTest {
     @Test
     void hello() {
         String str = testController.hello();
-        assertEquals(str, "Application is running");
+        assertEquals( "Application is running",str);
     }
 }

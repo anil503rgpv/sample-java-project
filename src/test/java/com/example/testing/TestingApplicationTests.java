@@ -11,7 +11,7 @@ class TestingApplicationTests {
 	}
 
 	@Test
-	public void main() {
+	void main() {
 		TestingApplication.main(new String[]{});
 	}
 

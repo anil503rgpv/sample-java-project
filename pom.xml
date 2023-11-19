@@ -140,7 +140,6 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
-<!--			<name>a0dyzxywuaamw-artifactory-primary-0-snapshots</name>-->
 			<url>https://jfrogsever11082023.jfrog.io/artifactory/sandhya-libs-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
