@@ -1,30 +1,44 @@
 package com.example.testing.contoller;
 
+import com.example.testing.service.TestService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ExtendWith(MockitoExtension.class)
+@WebMvcTest(TestController.class)
 class TestControllerTest {
 
     @InjectMocks
     private TestController testController;
 
-    /*@BeforeEach
-    void setUp() {
-    }
+    @MockBean
+    private TestService testService;
 
-    @AfterEach
-    void tearDown() {
-    }*/
-
+    @Autowired
+    private MockMvc mvc;
 
     @Test
     void hello() {
         String str = testController.hello();
         assertEquals( "Application is running",str);
+    }
+
+    @Test
+    void testResponse() throws Exception{
+        when(testService.serviceResponse()).thenReturn("mock value");
+        mvc.perform(MockMvcRequestBuilders.get("/hello")
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }
