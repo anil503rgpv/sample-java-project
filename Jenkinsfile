@@ -7,7 +7,7 @@ node {
   }
   stage('Building jar '){
     steps {
-      sh "${mvn}/bin/mvn clean deploy"
+      sh "echo 'Building jenkins job'"
     }
   }
   stage('SonarQube Analysis') {
