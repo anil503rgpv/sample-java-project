@@ -25,7 +25,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.3.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -142,14 +146,14 @@
 		</profile>
 	</profiles>
 
-	<distributionManagement>
+	<!--<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
 			<url>https://jfrogsever11082023.jfrog.io/artifactory/sandhya-libs-snapshot</url>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement>-->
 
-	<repositories>
+	<!--<repositories>
 		<repository>
 			<snapshots>
 				<enabled>false</enabled>
@@ -164,6 +168,6 @@
 			<name>sandhya-libs-snapshot</name>
 			<url>https://jfrogsever11082023.jfrog.io/artifactory/sandhya-libs-snapshot</url>
 		</repository>
-	</repositories>
+	</repositories>-->
 
 </project>
