@@ -45,7 +45,6 @@ class TestControllerTest {
 
     @Test
     void testCreateEmpWhenNewEmployeeThenCreated() throws Exception {
-        Emp emp = new Emp("John", 1, "Hello");
         mvc.perform(MockMvcRequestBuilders.post("/createemp")
                         .content("{\"name\":\"John\",\"id\":1,\"msg\":\"Hello\"}")
                         .contentType(MediaType.APPLICATION_JSON)
